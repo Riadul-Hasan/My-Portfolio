@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css'
 import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
+import Hero from './components/Hero';
 
 function App() {
   useEffect(() => {
@@ -36,6 +37,7 @@ function App() {
 
       <div className="relative z-10">
         <Navbar />
+        <Hero></Hero>
 
       </div>
     </motion.div>

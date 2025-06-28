@@ -42,13 +42,16 @@ const Navbar = () => {
             className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-gray-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     <motion.div
-                        className="flex-shrink-0"
+                        className="flex-shrink-0 flex gap-2 items-center"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
+                        <div>
+                            <img className='w-14 h-14' src="https://i.ibb.co/svryHcKn/icon.png" alt="" />
+                        </div>
                         <button
                             onClick={() => scrollToSection('home')}
                             className="text-2xl font-bold text-white hover:text-blue-400 transition-colors"
