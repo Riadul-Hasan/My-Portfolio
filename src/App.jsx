@@ -3,6 +3,8 @@ import './App.css'
 import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import About from './components/About';
+import Skills from './components/Skills';
 
 function App() {
   useEffect(() => {
@@ -38,6 +40,8 @@ function App() {
       <div className="relative z-10">
         <Navbar />
         <Hero></Hero>
+        <About></About>
+        <Skills></Skills>
 
       </div>
     </motion.div>
