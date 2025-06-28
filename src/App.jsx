@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
+import Education from './components/Education';
 
 function App() {
   useEffect(() => {
@@ -42,6 +43,7 @@ function App() {
         <Hero></Hero>
         <About></About>
         <Skills></Skills>
+        <Education></Education>
 
       </div>
     </motion.div>

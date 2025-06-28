@@ -91,7 +91,7 @@ const Skills = () => {
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                    <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
                         Skills & Expertise
                     </h2>
                     <motion.div
@@ -101,7 +101,7 @@ const Skills = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         viewport={{ once: true }}
                     />
-                    <p className="text-gray-300 mt-6 max-w-2xl mx-auto text-lg">
+                    <p className="text-gray-300 mt-6 max-w-2xl mx-auto text-md">
                         Here are the technologies and tools I work with to bring ideas to life
                     </p>
                 </motion.div>
