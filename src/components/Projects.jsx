@@ -21,7 +21,9 @@ const Projects = () => {
                 'https://i.ibb.co/PsCRxPc6/Screenshot-2025-06-29-100455.png',
                 'https://i.ibb.co/fdByqn8p/Screenshot-2025-06-29-100608.png',
                 'https://i.ibb.co/Sg4CMsj/dashboard.png',
-                'https://i.ibb.co/cSXJkwYK/Screenshot-2025-06-29-101138.png'
+                'https://i.ibb.co/cSXJkwYK/Screenshot-2025-06-29-101138.png',
+                'https://i.ibb.co/XrTPW0XY/share-Tips.png',
+                'https://i.ibb.co/v4X0ZQWQ/tips.png'
             ],
             technologies: [
                 { name: 'React', color: 'bg-blue-500/20 text-blue-300' },

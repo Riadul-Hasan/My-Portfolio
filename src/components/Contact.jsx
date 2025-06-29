@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { HiMail, HiPhone, HiChatAlt, HiPaperAirplane, HiLocationMarker, HiClock, HiOutlineSparkles } from 'react-icons/hi';
 import { FiSend } from 'react-icons/fi';
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+import '@sweetalert2/theme-dark/dark.css';
+import 'animate.css/animate.min.css';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -25,7 +29,7 @@ const Contact = () => {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch('https://portfolio-server-eight-ebon.vercel.app/api/contact', { // Use full URL
+            const response = await fetch('https://portfolio-server-eight-ebon.vercel.app/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
@@ -39,24 +43,63 @@ const Contact = () => {
                     data = await response.json();
                 } catch (jsonError) {
                     console.error('JSON parse error:', jsonError);
-                    throw new Error('Invalid JSON response from server.');
+                    throw new Error('Invalid server response');
                 }
             }
 
             if (!response.ok) {
-                throw new Error(data.error || `Request failed with status ${response.status}`);
+                throw new Error(data.error || `Server responded with status ${response.status}`);
             }
 
-            alert(data.message || 'Message sent successfully!');
+            // Success Alert
+            await Swal.fire({
+                title: 'Success!',
+                text: data.message || 'Your message has been sent successfully!',
+                icon: 'success',
+                background: '#1F2839',
+                color: '#E5E7EB',
+                iconColor: '#8B5CF6',
+                confirmButtonColor: '#7C3AED',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown animate__faster'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp animate__faster'
+                },
+                customClass: {
+                    confirmButton: 'px-4 py-2 rounded-lg font-medium shadow-lg transition hover:scale-105'
+                }
+            });
+
             setFormData({ name: '', email: '', subject: '', message: '' });
+
         } catch (error) {
-            console.error('Error submitting contact form:', error);
-            alert(error.message || 'Failed to send message. Please try again.');
+            console.error('Error:', error);
+
+            // Error Alert
+            await Swal.fire({
+                title: 'Error!',
+                text: error.message || 'Failed to send message. Please try again.',
+                icon: 'error',
+                background: '#1F2839',
+                color: '#E5E7EB',
+                iconColor: '#EC4899',
+                confirmButtonColor: '#DB2777',
+                showClass: {
+                    popup: 'animate__animated animate__shakeX animate__faster'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutDown animate__faster'
+                },
+                customClass: {
+                    confirmButton: 'px-4 py-2 rounded-lg font-medium shadow-lg transition hover:scale-105'
+                }
+            });
+
         } finally {
             setIsSubmitting(false);
         }
     };
-
 
     const contactInfo = [
         {

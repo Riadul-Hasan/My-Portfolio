@@ -56,7 +56,7 @@ const Navbar = () => {
                             onClick={() => scrollToSection('home')}
                             className="text-2xl font-bold text-white hover:text-blue-400 transition-colors"
                         >
-                            Riadul Hasan Riad
+                            Riadul Hasan
                         </button>
                     </motion.div>
 
