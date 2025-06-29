@@ -1,20 +1,36 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { HiDownload } from 'react-icons/hi';
-import { FaGithub, FaLinkedin, FaTwitter, FaFacebook } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaReact, FaHtml5, FaJs, FaCss3 } from 'react-icons/fa';
+import { SiTypescript, SiNextdotjs, SiTailwindcss, SiNodedotjs } from 'react-icons/si';
 
 const Hero = () => {
     const socialLinks = [
         { icon: FaGithub, href: 'https://github.com/Riadul-Hasan', label: 'GitHub' },
         { icon: FaLinkedin, href: 'https://www.linkedin.com/in/riadul-hasan-riad-6b954a2b8/', label: 'LinkedIn' },
         { icon: FaTwitter, href: 'https://x.com/act_like_riadul', label: 'Twitter' },
-        // { icon: FaFacebook, href: '#', label: 'Facebook' },
     ];
 
     const handleDownloadResume = () => {
-        // Placeholder for resume download
-        alert("resume download")
+        const link = document.createElement('a');
+        link.href = '/resume.pdf';
+        link.download = 'resume.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     };
+
+    // Tech icons configuration for background
+    const techIcons = [
+        { icon: FaReact, size: 24, color: 'text-blue-400', x: 10, y: 20, duration: 15 },
+        { icon: FaHtml5, size: 24, color: 'text-orange-500', x: 85, y: 30, duration: 18 },
+        { icon: FaJs, size: 24, color: 'text-yellow-400', x: 15, y: 70, duration: 20 },
+        { icon: FaCss3, size: 24, color: 'text-blue-500', x: 80, y: 80, duration: 17 },
+        { icon: SiTypescript, size: 24, color: 'text-blue-600', x: 25, y: 40, duration: 22 },
+        { icon: SiNextdotjs, size: 24, color: 'text-white', x: 75, y: 60, duration: 19 },
+        { icon: SiTailwindcss, size: 24, color: 'text-cyan-400', x: 40, y: 90, duration: 21 },
+        { icon: SiNodedotjs, size: 24, color: 'text-green-500', x: 90, y: 10, duration: 16 },
+    ];
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -39,8 +55,39 @@ const Hero = () => {
     };
 
     return (
-        <section id="home" className="min-h-screen flex items-center justify-center pt-16">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="home" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+            {/* Animated tech icons in background */}
+            <div className="absolute inset-0 overflow-hidden opacity-20">
+                {techIcons.map((tech, index) => (
+                    <motion.div
+                        key={index}
+                        className={`absolute ${tech.color} opacity-70`}
+                        style={{
+                            left: `${tech.x}%`,
+                            top: `${tech.y}%`,
+                            fontSize: `${tech.size}px`
+                        }}
+                        animate={{
+                            y: [0, -20, 0, 20, 0],
+                            x: [0, 10, -10, 0],
+                            rotate: [0, 5, -5, 0]
+                        }}
+                        transition={{
+                            duration: tech.duration,
+                            repeat: Infinity,
+                            repeatType: "reverse",
+                            ease: "easeInOut"
+                        }}
+                    >
+                        <tech.icon className="w-full h-full" />
+                    </motion.div>
+                ))}
+            </div>
+
+            {/* Subtle gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-purple-900/20 to-gray-900/90 z-0" />
+
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <motion.div
                     className="text-center"
                     variants={containerVariants}
@@ -55,14 +102,14 @@ const Hero = () => {
                         <div className="relative w-64 h-64 mx-auto">
                             <motion.div
                                 className="w-full h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-600 p-1"
-                                whileHover={{ scale: 20, rotate: 5 }}
+                                whileHover={{ scale: 1.05, rotate: 5 }}
                                 transition={{ duration: 0.3 }}
                             >
                                 <motion.img
                                     src="https://i.ibb.co/Q3B3HYcG/profile-pic-9.png"
                                     alt="Riadul Hasan"
                                     className="w-full h-full rounded-full object-cover"
-                                    whileHover={{ scale: 1.1 }}
+                                    whileHover={{ scale: 1.03 }}
                                     transition={{ duration: 0.3 }}
                                 />
                             </motion.div>
@@ -80,7 +127,6 @@ const Hero = () => {
                             />
                         </div>
                     </motion.div>
-
 
                     <motion.div
                         className="mb-8"
