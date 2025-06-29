@@ -7,10 +7,10 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     const socialLinks = [
-        { icon: FaGithub, href: '#', label: 'GitHub' },
-        { icon: FaLinkedin, href: '#', label: 'LinkedIn' },
-        { icon: FaTwitter, href: '#', label: 'Twitter' },
-        { icon: FaFacebook, href: '#', label: 'Facebook' },
+        { icon: FaGithub, href: 'https://github.com/Riadul-Hasan', label: 'GitHub' },
+        { icon: FaLinkedin, href: 'https://www.linkedin.com/in/riadul-hasan-riad-6b954a2b8/', label: 'LinkedIn' },
+        { icon: FaTwitter, href: 'https://x.com/act_like_riadul', label: 'Twitter' },
+        { icon: FaFacebook, href: 'https://www.facebook.com/riad.hasan.39142072/', label: 'Facebook' },
     ];
 
     const quickLinks = [

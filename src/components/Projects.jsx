@@ -238,7 +238,7 @@ const Projects = () => {
                         </div>
                     </motion.div>
                     <motion.h2
-                        className="text-4xl md:text-5xl font-bold text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400"
+                        className="text-2xl md:text-4xl font-bold text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400"
                         initial={{ opacity: 0, y: -10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
@@ -254,7 +254,7 @@ const Projects = () => {
                         viewport={{ once: true }}
                     />
                     <motion.p
-                        className="text-gray-300 mt-6 max-w-2xl mx-auto text-lg"
+                        className="text-gray-300 mt-6 max-w-2xl mx-auto text-md"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ duration: 0.8, delay: 0.3 }}

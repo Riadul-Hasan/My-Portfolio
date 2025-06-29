@@ -24,12 +24,39 @@ const Contact = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        setTimeout(() => {
-            alert('Thank you for your message! I will get back to you soon.');
+        try {
+            const response = await fetch('https://portfolio-server-eight-ebon.vercel.app/api/contact', { // Use full URL
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            let data = {};
+            const contentLength = response.headers.get('content-length');
+
+            if (contentLength && contentLength !== '0') {
+                try {
+                    data = await response.json();
+                } catch (jsonError) {
+                    console.error('JSON parse error:', jsonError);
+                    throw new Error('Invalid JSON response from server.');
+                }
+            }
+
+            if (!response.ok) {
+                throw new Error(data.error || `Request failed with status ${response.status}`);
+            }
+
+            alert(data.message || 'Message sent successfully!');
             setFormData({ name: '', email: '', subject: '', message: '' });
+        } catch (error) {
+            console.error('Error submitting contact form:', error);
+            alert(error.message || 'Failed to send message. Please try again.');
+        } finally {
             setIsSubmitting(false);
-        }, 2000);
+        }
     };
+
 
     const contactInfo = [
         {

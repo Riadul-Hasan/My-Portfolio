@@ -119,7 +119,7 @@ const Education = () => {
                             <HiAcademicCap className="text-white text-3xl" />
                         </div>
                     </motion.div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+                    <h2 className="text-2xl md:text-4xl font-bold text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
                         Education Journey
                     </h2>
                     <motion.div
@@ -130,7 +130,7 @@ const Education = () => {
                         viewport={{ once: true }}
                     />
                     <motion.p
-                        className="text-gray-300 mt-6 max-w-2xl mx-auto text-lg"
+                        className="text-gray-300 mt-6 max-w-2xl mx-auto text-md"
                         variants={fadeInVariants}
                         initial="hidden"
                         whileInView="visible"
@@ -270,7 +270,7 @@ const Education = () => {
                                 key={index}
                                 className={`relative rounded-xl p-6 overflow-hidden border ${cert.highlight ?
                                     "border-blue-500/30 bg-gradient-to-br from-blue-900/20 to-blue-900/10" :
-                                    "border-gray-700/50 bg-gray-800/30"}`}
+                                    "border-blue-500/50 bg-gray-800/30"}`}
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 whileHover={{
